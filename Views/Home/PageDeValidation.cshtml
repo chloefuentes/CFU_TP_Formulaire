@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Page de validation</title>
+    <link rel="stylesheet" href="~/resources/Form.css" />
+ 
+</head>
+<body>
+    <header>
+        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Formulaire TP HN</h1>
+    </header>
+    <h2>Votre réponse a été prise en compte.
+
+    </h2>
+    <nav>
+        <ul>
+
+            <li><a href="/Home/Index">Acceuil</a></li>
+            <li><a href="#">Liste des avis</a></li>
+        </ul>
+    </nav>
+    <form asp-action="SubmitForm" asp-controller="Home" method="post">
+         @foreach (var item in Model)
+        {
+        <table>
+            <tr>
+                <th colspan="2">Informations personnelles</th>
+            </tr>
+            <tr>
+                <td>Nom</td>
+                <td>@item.Nom</td>
+            </tr>
+            <tr>
+                <td>Prenom</td>
+                <td>@item.Prenom</td>
+            </tr>
+            <tr>
+                <td>Genre</td>
+                <td>@item.Genre</td>
+            </tr>
+            <tr>
+                <td>Adresse</td>
+                <td>@item.Adresse</td>
+            </tr>
+            <tr>
+                <td>Code postal</td>
+                <td>@item.CodePostal</td>
+            </tr>
+            <tr>
+                <td>Ville</td>
+                <td>@item.Ville</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>@item.Email</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th colspan="2">Informations formation suivie</th>
+            </tr>
+            <tr>
+                <td>Date début de formation</td>
+                <td>@item.DateDebFormation.ToString("yyyy-MM-dd")</td>
+            </tr>
+            <tr>
+                <td>Formation suivie</td>
+                <td>@item.Formation</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th colspan="2">Avis sur la formation</th>
+            </tr>
+            <tr>
+                <td>Formation Cobol</td>
+                <td>@item.AvisCobol</td>
+            </tr>
+            <tr>
+                <td>Formation C#</td>
+                <td>@item.AvisCsharp</td>
+            </tr>
+        </table>
+        }
+        <a href="/Home/ListeAvis">
+            <button>Voir la Liste des Avis</button>
+        </a>
+
+    </form>
+</body>
+
+</html>
